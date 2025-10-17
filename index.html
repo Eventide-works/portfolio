@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydrain - Roblox Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            color: #d1d5db;
+        }
+        .text-glow {
+            text-shadow: 0 0 8px rgba(99, 102, 241, 0.5), 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+        .skill-card {
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.2), 0 4px 6px -2px rgba(99, 102, 241, 0.1);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #6366f1;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .achievement-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: #374151;
+            color: #e5e7eb;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            border: 1px solid #4b5563;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold text-white">Hydrain</a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-300 hover:text-indigo-400 nav-link">About</a>
+                    <a href="#skills" class="text-gray-300 hover:text-indigo-400 nav-link">Skills</a>
+                    <a href="#projects" class="text-gray-300 hover:text-indigo-400 nav-link">Projects</a>
+                    <a href="#contact" class="text-gray-300 hover:text-indigo-400 nav-link">Contact</a>
+                </nav>
+                <div class="md:hidden">
+                    <!-- Mobile menu button can be added here -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="home" class="py-24 md:py-32 bg-gray-900 text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight">
+                    Hydrain
+                </h1>
+                <p class="mt-4 text-xl md:text-2xl text-indigo-400 font-semibold text-glow">Expert Roblox Developer & Scripter</p>
+                <div class="mt-8 flex flex-wrap justify-center items-center gap-4">
+                     <div class="achievement-badge">
+                        <svg class="w-5 h-5 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        Hidden Devs Scripting Event Winner
+                    </div>
+                     <div class="achievement-badge">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        Roblox Game Jam 2025 Honoree
+                    </div>
+                </div>
+                <p class="mt-8 max-w-3xl mx-auto text-lg text-gray-400">
+                    Crafting immersive and performant experiences on the Roblox platform with cutting-edge scripting and advanced techniques.
+                </p>
+                <div class="mt-10">
+                    <a href="#projects" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full hover:bg-indigo-500 transition-transform transform hover:scale-105 duration-300">
+                        View My Work
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-white sm:text-4xl">About Me</h2>
+                    <p class="mt-4 text-lg text-gray-400">A passionate scripter with a knack for problem-solving.</p>
+                </div>
+                <div class="mt-12 max-w-4xl mx-auto text-center text-gray-300 leading-relaxed">
+                    <p>
+                        I'm a dedicated Roblox developer specializing in high-performance scripting and complex game mechanics. With a strong foundation in Object-Oriented Programming (OOP) and various algorithms, I architect clean, scalable, and maintainable codebases. My expertise lies in pushing the boundaries of what's possible on Roblox, from creating intelligent AI systems and procedurally generated worlds to implementing advanced graphical effects and seamless parkour mechanics. I thrive on technical challenges and am always exploring new ways to innovate and create unforgettable player experiences.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-white sm:text-4xl">Technical Skills</h2>
+                    <p class="mt-4 text-lg text-gray-400">My toolbox for creating next-gen Roblox experiences.</p>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- AI -->
+                    <div class="skill-card rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-white">Artificial Intelligence</h3>
+                        <p class="mt-2 text-gray-400">Creating dynamic and intelligent NPCs.</p>
+                        <ul class="mt-4 space-y-2 text-gray-300">
+                            <li>✓ Context-Based Steering</li>
+                            <li>✓ Behavior Trees</li>
+                            <li>✓ Finite State Machines (FSM)</li>
+                            <li>✓ Goal-Oriented Action Planning (GOAP)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Gameplay & World -->
+                    <div class="skill-card rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-white">Gameplay & World Gen</h3>
+                        <p class="mt-2 text-gray-400">Building engaging and unique worlds.</p>
+                        <ul class="mt-4 space-y-2 text-gray-300">
+                            <li>✓ Procedural Map Generation</li>
+                            <li>✓ Optical Illusions & Puzzles</li>
+                            <li>✓ Advanced Parkour Mechanics</li>
+                            <li>✓ Complex Combat Systems & Abilities</li>
+                        </ul>
+                    </div>
+
+                    <!-- Graphics & API -->
+                    <div class="skill-card rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-white">Graphics & API Mastery</h3>
+                        <p class="mt-2 text-gray-400">Polishing visuals and optimizing performance.</p>
+                        <ul class="mt-4 space-y-2 text-gray-300">
+                            <li>✓ Advanced Light Tuning</li>
+                            <li>✓ Ray Tracing & Global Illumination</li>
+                            <li>✓ Mastered GUI Design & Scripting</li>
+                            <li>✓ Full Roblox API Proficiency</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-white sm:text-4xl">Projects</h2>
+                    <p class="mt-4 text-lg text-gray-400">A selection of my work.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1: AI -->
+                    <div class="skill-card rounded-lg overflow-hidden">
+                        <iframe class="w-full h-48" src="https://www.youtube.com/embed/LE38Qp3s3M4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">GOAP AI Combat Arena</h3>
+                            <p class="mt-2 text-gray-400">A tech demo showcasing intelligent NPCs using a GOAP framework to make complex decisions in a combat environment.</p>
+                            <a href="https://www.roblox.com/games/2753915549/Blox-Fruits" target="_blank" class="mt-4 inline-block text-indigo-400 font-semibold hover:text-indigo-300">View on Roblox →</a>
+                        </div>
+                    </div>
+                    <!-- Project 2: Procedural Generation -->
+                    <div class="skill-card rounded-lg overflow-hidden">
+                        <iframe class="w-full h-48" src="https://www.youtube.com/embed/k_a-82B3KJE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Infinite Parkour Gauntlet</h3>
+                            <p class="mt-2 text-gray-400">An endless obby generated procedurally, featuring advanced parkour mechanics and dynamic difficulty scaling.</p>
+                            <a href="https://www.roblox.com/games/15376901355/Blade-Ball" target="_blank" class="mt-4 inline-block text-indigo-400 font-semibold hover:text-indigo-300">View on Roblox →</a>
+                        </div>
+                    </div>
+                    <!-- Project 3: Graphics -->
+                    <div class="skill-card rounded-lg overflow-hidden">
+                        <iframe class="w-full h-48" src="https://www.youtube.com/embed/5kAP_o_86_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Real-time GI Showcase</h3>
+                            <p class="mt-2 text-gray-400">A visual showcase demonstrating a custom-scripted ray tracing and global illumination system for realistic lighting.</p>
+                            <a href="https://www.roblox.com/games/920587237/Adopt-Me" target="_blank" class="mt-4 inline-block text-indigo-400 font-semibold hover:text-indigo-300">View on Roblox →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-white sm:text-4xl">Get In Touch</h2>
+                <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
+                    I'm currently available for commissions and collaborative projects. If you have an idea you'd like to discuss, feel free to reach out.
+                </p>
+                <div class="mt-8">
+                    <a href="mailto:contact@hydrain.dev" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full hover:bg-indigo-500 transition-transform transform hover:scale-105 duration-300">
+                        contact@hydrain.dev
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-400">
+             <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://twitter.com/RobloxDev" target="_blank" class="text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+                </a>
+                <a href="https://github.com" target="_blank" class="text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
+                </a>
+                <a href="https://talent.roblox.com/" target="_blank" class="text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                </a>
+            </div>
+            <p>&copy; 2025 Hydrain. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
