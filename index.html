@@ -53,12 +53,45 @@
             border-radius: 9999px;
             font-weight: 500;
             border: 1px solid #4b5563;
+            cursor: pointer;
+            transition: background-color 0.2s;
         }
+        .achievement-badge:hover {
+            background-color: #4b5563;
+        }
+        /* Styles for the image modal */
+        #imageModal {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        #imageModal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        #modalImageContainer {
+            transform: scale(0.95);
+            filter: blur(5px);
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        #imageModal.active #modalImageContainer {
+            transform: scale(1);
+            filter: blur(0);
+        }
+        #modalImage {
+            border: 2px solid #6366f1;
+            border-radius: 8px;
+            max-height: 80vh;
+            width: auto;
+        }
+        /* Removed project-image-container hover effect as videos are embedded */
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header & Navigation -->
     <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-700">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
@@ -69,30 +102,24 @@
                     <a href="#projects" class="text-gray-300 hover:text-indigo-400 nav-link">Projects</a>
                     <a href="#contact" class="text-gray-300 hover:text-indigo-400 nav-link">Contact</a>
                 </nav>
-                <div class="md:hidden">
-                    <!-- Mobile menu button can be added here -->
-                </div>
             </div>
         </div>
     </header>
 
     <main class="pt-20">
-        <!-- Hero Section -->
         <section id="home" class="py-24 md:py-32 bg-gray-900 text-center">
             <div class="container mx-auto px-6">
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight">
-                    Hydrain
-                </h1>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight">Hydrain</h1>
                 <p class="mt-4 text-xl md:text-2xl text-indigo-400 font-semibold text-glow">Expert Roblox Developer & Scripter</p>
                 <div class="mt-8 flex flex-wrap justify-center items-center gap-4">
-                     <div class="achievement-badge">
+                    <button data-image-src="https://i.imgur.com/o0GjnSm.jpeg" class="achievement-badge modal-trigger">
                         <svg class="w-5 h-5 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                         Hidden Devs Scripting Event Winner
-                    </div>
-                     <div class="achievement-badge">
+                    </button>
+                    <button data-image-src="https://i.imgur.com/sX3o5CP.png" class="achievement-badge modal-trigger">
                         <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        Roblox Game Jam 2025 Honoree
-                    </div>
+                        Roblox Game Jam Honoree
+                    </button>
                 </div>
                 <p class="mt-8 max-w-3xl mx-auto text-lg text-gray-400">
                     Crafting immersive and performant experiences on the Roblox platform with cutting-edge scripting and advanced techniques.
@@ -105,70 +132,9 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="text-center">
-                    <h2 class="text-3xl font-bold text-white sm:text-4xl">About Me</h2>
-                    <p class="mt-4 text-lg text-gray-400">A passionate scripter with a knack for problem-solving.</p>
-                </div>
-                <div class="mt-12 max-w-4xl mx-auto text-center text-gray-300 leading-relaxed">
-                    <p>
-                        I'm a dedicated Roblox developer specializing in high-performance scripting and complex game mechanics. With a strong foundation in Object-Oriented Programming (OOP) and various algorithms, I architect clean, scalable, and maintainable codebases. My expertise lies in pushing the boundaries of what's possible on Roblox, from creating intelligent AI systems and procedurally generated worlds to implementing advanced graphical effects and seamless parkour mechanics. I thrive on technical challenges and am always exploring new ways to innovate and create unforgettable player experiences.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6">
-                <div class="text-center">
-                    <h2 class="text-3xl font-bold text-white sm:text-4xl">Technical Skills</h2>
-                    <p class="mt-4 text-lg text-gray-400">My toolbox for creating next-gen Roblox experiences.</p>
-                </div>
-
-                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- AI -->
-                    <div class="skill-card rounded-lg p-6">
-                        <h3 class="text-xl font-bold text-white">Artificial Intelligence</h3>
-                        <p class="mt-2 text-gray-400">Creating dynamic and intelligent NPCs.</p>
-                        <ul class="mt-4 space-y-2 text-gray-300">
-                            <li>✓ Context-Based Steering</li>
-                            <li>✓ Behavior Trees</li>
-                            <li>✓ Finite State Machines (FSM)</li>
-                            <li>✓ Goal-Oriented Action Planning (GOAP)</li>
-                        </ul>
-                    </div>
-
-                    <!-- Gameplay & World -->
-                    <div class="skill-card rounded-lg p-6">
-                        <h3 class="text-xl font-bold text-white">Gameplay & World Gen</h3>
-                        <p class="mt-2 text-gray-400">Building engaging and unique worlds.</p>
-                        <ul class="mt-4 space-y-2 text-gray-300">
-                            <li>✓ Procedural Map Generation</li>
-                            <li>✓ Optical Illusions & Puzzles</li>
-                            <li>✓ Advanced Parkour Mechanics</li>
-                            <li>✓ Complex Combat Systems & Abilities</li>
-                        </ul>
-                    </div>
-
-                    <!-- Graphics & API -->
-                    <div class="skill-card rounded-lg p-6">
-                        <h3 class="text-xl font-bold text-white">Graphics & API Mastery</h3>
-                        <p class="mt-2 text-gray-400">Polishing visuals and optimizing performance.</p>
-                        <ul class="mt-4 space-y-2 text-gray-300">
-                            <li>✓ Advanced Light Tuning</li>
-                            <li>✓ Ray Tracing & Global Illumination</li>
-                            <li>✓ Mastered GUI Design & Scripting</li>
-                            <li>✓ Full Roblox API Proficiency</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
+        <section id="about" class="py-20"> <div class="container mx-auto px-6"> <div class="text-center"> <h2 class="text-3xl font-bold text-white sm:text-4xl">About Me</h2> <p class="mt-4 text-lg text-gray-400">A passionate scripter with a knack for problem-solving.</p> </div> <div class="mt-12 max-w-4xl mx-auto text-center text-gray-300 leading-relaxed"> <p> I'm a dedicated Roblox developer specializing in high-performance scripting and complex game mechanics. With a strong foundation in Object-Oriented Programming (OOP) and various algorithms, I architect clean, scalable, and maintainable codebases. My expertise lies in pushing the boundaries of what's possible on Roblox, from creating intelligent AI systems and procedurally generated worlds to implementing advanced graphical effects and seamless parkour mechanics. I thrive on technical challenges and am always exploring new ways to innovate and create unforgettable player experiences. </p> </div> </div> </section>
+        <section id="skills" class="py-20 bg-gray-900"> <div class="container mx-auto px-6"> <div class="text-center"> <h2 class="text-3xl font-bold text-white sm:text-4xl">Technical Skills</h2> <p class="mt-4 text-lg text-gray-400">My toolbox for creating next-gen Roblox experiences.</p> </div> <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> <div class="skill-card rounded-lg p-6"> <h3 class="text-xl font-bold text-white">Artificial Intelligence</h3> <p class="mt-2 text-gray-400">Creating dynamic and intelligent NPCs.</p> <ul class="mt-4 space-y-2 text-gray-300"> <li>✓ Context-Based Steering</li> <li>✓ Behavior Trees</li> <li>✓ Finite State Machines (FSM)</li> <li>✓ Goal-Oriented Action Planning (GOAP)</li> </ul> </div> <div class="skill-card rounded-lg p-6"> <h3 class="text-xl font-bold text-white">Gameplay & World Gen</h3> <p class="mt-2 text-gray-400">Building engaging and unique worlds.</p> <ul class="mt-4 space-y-2 text-gray-300"> <li>✓ Procedural Map Generation</li> <li>✓ Optical Illusions & Puzzles</li> <li>✓ Advanced Parkour Mechanics</li> <li>✓ Complex Combat Systems & Abilities</li> </ul> </div> <div class="skill-card rounded-lg p-6"> <h3 class="text-xl font-bold text-white">Graphics & API Mastery</h3> <p class="mt-2 text-gray-400">Polishing visuals and optimizing performance.</p> <ul class="mt-4 space-y-2 text-gray-300"> <li>✓ Advanced Light Tuning</li> <li>✓ Ray Tracing & Global Illumination</li> <li>✓ Mastered GUI Design & Scripting</li> <li>✓ Full Roblox API Proficiency</li> </ul> </div> </div> </div> </section>
+        
         <section id="projects" class="py-20">
             <div class="container mx-auto px-6">
                 <div class="text-center">
@@ -176,38 +142,31 @@
                     <p class="mt-4 text-lg text-gray-400">A selection of my work.</p>
                 </div>
                 <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1: AI -->
                     <div class="skill-card rounded-lg overflow-hidden">
-                        <iframe class="w-full h-48" src="https://www.youtube.com/embed/LE38Qp3s3M4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-full h-48" src="https://www.youtube.com/embed/f9vGu-cZkVA?si=fY31Ml1ZEUHPL5Bk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white">GOAP AI Combat Arena</h3>
-                            <p class="mt-2 text-gray-400">A tech demo showcasing intelligent NPCs using a GOAP framework to make complex decisions in a combat environment.</p>
-                            <a href="https://www.roblox.com/games/2753915549/Blox-Fruits" target="_blank" class="mt-4 inline-block text-indigo-400 font-semibold hover:text-indigo-300">View on Roblox →</a>
+                            <h3 class="text-xl font-bold text-white">Cognitive AI Systems</h3>
+                            <p class="mt-2 text-gray-400">A demonstration of advanced AI, including a custom GOAP framework for intelligent NPC decision-making.</p>
                         </div>
                     </div>
-                    <!-- Project 2: Procedural Generation -->
                     <div class="skill-card rounded-lg overflow-hidden">
-                        <iframe class="w-full h-48" src="https://www.youtube.com/embed/k_a-82B3KJE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-full h-48" src="https://www.youtube.com/embed/wllQ67N2ALE?si=YXLh9saXI9iucR6_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white">Infinite Parkour Gauntlet</h3>
-                            <p class="mt-2 text-gray-400">An endless obby generated procedurally, featuring advanced parkour mechanics and dynamic difficulty scaling.</p>
-                            <a href="https://www.roblox.com/games/15376901355/Blade-Ball" target="_blank" class="mt-4 inline-block text-indigo-400 font-semibold hover:text-indigo-300">View on Roblox →</a>
+                            <h3 class="text-xl font-bold text-white">Developer Toolkit</h3>
+                            <p class="mt-2 text-gray-400">A collection of powerful, custom-made studio plugins designed to accelerate and improve the development workflow.</p>
                         </div>
                     </div>
-                    <!-- Project 3: Graphics -->
                     <div class="skill-card rounded-lg overflow-hidden">
-                        <iframe class="w-full h-48" src="https://www.youtube.com/embed/5kAP_o_86_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-full h-48" src="https://www.youtube.com/embed/NUJa6b6k3eU?si=XaPd2YSDAa1cfINz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white">Real-time GI Showcase</h3>
-                            <p class="mt-2 text-gray-400">A visual showcase demonstrating a custom-scripted ray tracing and global illumination system for realistic lighting.</p>
-                            <a href="https://www.roblox.com/games/920587237/Adopt-Me" target="_blank" class="mt-4 inline-block text-indigo-400 font-semibold hover:text-indigo-300">View on Roblox →</a>
+                            <h3 class="text-xl font-bold text-white">Physics-Based Lighting</h3>
+                            <p class="mt-2 text-gray-400">A visual showcase of a custom-scripted ray tracing and global illumination system for realistic, dynamic lighting.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl font-bold text-white sm:text-4xl">Get In Touch</h2>
@@ -215,33 +174,76 @@
                     I'm currently available for commissions and collaborative projects. If you have an idea you'd like to discuss, feel free to reach out.
                 </p>
                 <div class="mt-8">
-                    <a href="mailto:contact@hydrain.dev" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full hover:bg-indigo-500 transition-transform transform hover:scale-105 duration-300">
-                        contact@hydrain.dev
+                    <a href="mailto:eventideworksrbx@gmail.com" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full hover:bg-indigo-500 transition-transform transform hover:scale-105 duration-300">
+                        eventideworksrbx@gmail.com
                     </a>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 border-t border-gray-700">
         <div class="container mx-auto px-6 py-6 text-center text-gray-400">
              <div class="flex justify-center space-x-6 mb-4">
-                <a href="https://twitter.com/RobloxDev" target="_blank" class="text-gray-400 hover:text-white">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+                <a href="https://github.com/Eventide-works" target="_blank" class="text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"></path></svg>
                 </a>
-                <a href="https://github.com" target="_blank" class="text-gray-400 hover:text-white">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
+                 <a href="https://www.youtube.com/@Eventideworks-o3r" target="_blank" class="text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg>
                 </a>
-                <a href="https://talent.roblox.com/" target="_blank" class="text-gray-400 hover:text-white">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                <a href="https://www.roblox.com/users/3613337704/profile" target="_blank" class="text-gray-400 hover:text-white">
+                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
                 </a>
             </div>
             <p>&copy; 2025 Hydrain. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-[100]">
+        <div id="modalImageContainer" class="relative max-w-3xl w-full">
+            <img id="modalImage" src="" alt="Achievement Proof" class="w-full h-auto">
+            <button id="closeModal" class="absolute -top-4 -right-4 bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center text-2xl font-bold hover:bg-gray-200 transition">&times;</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const triggers = document.querySelectorAll('.modal-trigger');
+            const closeModal = document.getElementById('closeModal');
+
+            const openModal = (element) => {
+                const imageUrl = element.dataset.imageSrc;
+                if (!imageUrl) return;
+                modalImage.src = imageUrl;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeTheModal = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', () => openModal(trigger));
+            });
+            
+            closeModal.addEventListener('click', closeTheModal);
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    closeTheModal();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && modal.classList.contains('active')) {
+                    closeTheModal();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 
